@@ -11,7 +11,15 @@ namespace tp_web_equipo_28
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            dgvArticulos.DataSource = negocio.Listar();
+            dgvArticulos.DataBind();
 
+            if (!IsPostBack)
+            {
+                //Cargar por única vez cuando carga la página
+                //Se puede usar AutoPostBack = "true" en el TextBox (x ejemplo)
+            }
         }
     }
 }

@@ -90,6 +90,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoADatos.cs" />
+    <Compile Include="Articulo.cs" />
+    <Compile Include="ArticuloNegocio.cs" />
+    <Compile Include="Categoria.cs" />
+    <Compile Include="CategoriaNegocio.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -97,6 +102,11 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="IABML.cs" />
+    <Compile Include="Imagen.cs" />
+    <Compile Include="ImagenNegocio.cs" />
+    <Compile Include="Marca.cs" />
+    <Compile Include="MarcaNegocio.cs" />
     <Compile Include="MiMaster.Master.cs">
       <DependentUpon>MiMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

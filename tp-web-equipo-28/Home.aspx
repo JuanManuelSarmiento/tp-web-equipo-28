@@ -3,4 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Listado de Productos</h1>
+    <asp:GridView runat="server" ID="dgvArticulos"></asp:GridView>
+
 </asp:Content>
