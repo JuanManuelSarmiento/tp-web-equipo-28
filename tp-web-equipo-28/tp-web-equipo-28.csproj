@@ -64,6 +64,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ArticuloForm.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -92,6 +93,13 @@
   <ItemGroup>
     <Compile Include="AccesoADatos.cs" />
     <Compile Include="Articulo.cs" />
+    <Compile Include="ArticuloForm.aspx.cs">
+      <DependentUpon>ArticuloForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArticuloForm.aspx.designer.cs">
+      <DependentUpon>ArticuloForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ArticuloNegocio.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="CategoriaNegocio.cs" />

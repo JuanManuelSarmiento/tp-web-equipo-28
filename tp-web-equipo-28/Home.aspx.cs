@@ -11,8 +11,13 @@ namespace tp_web_equipo_28
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            dgvArticulos.DataSource = negocio.Listar();
+            if(Session["listaArticulos"] == null)
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                Session.Add("listaArticulos", negocio.Listar());
+            }
+           
+            dgvArticulos.DataSource = Session["listaArticulos"];
             dgvArticulos.DataBind();
 
             if (!IsPostBack)
