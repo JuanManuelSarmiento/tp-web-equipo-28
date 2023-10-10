@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Catalogo.Dominio;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace tp_web_equipo_28
+namespace Catalogo.Negocio
 {
     public class ArticuloNegocio : IABML<Articulo>
     {
-        public void Add(Articulo newEntity)
-        {
+        public void Add(Articulo newEntity) {
             AccesoADatos datos = new AccesoADatos();
             try
             {
@@ -40,7 +41,7 @@ namespace tp_web_equipo_28
             {
                 datos.SetParametro("@id", newEntity.Id);
                 datos.SetConsulta("DELETE FROM ARTICULOS WHERE Id = @id");
-
+                
                 datos.EjecutarLectura();
             }
             catch (Exception ex)
@@ -65,6 +66,8 @@ namespace tp_web_equipo_28
                 datos.SetParametro("@idCategoria", newEntity.Categoria.Id);
                 datos.SetParametro("@precio", newEntity.Precio);
                 datos.SetParametro("@id", newEntity.Id);
+                
+
                 datos.EjecutarLectura();
             }
             catch (Exception ex)
@@ -77,9 +80,27 @@ namespace tp_web_equipo_28
                 datos.CerrarConexion();
             }
         }
-        public void UpdateImage(Articulo art, string urlImagen)
+        public void UpdateImage(Articulo art)
         {
-            art.Imagen.ImagenUrl = urlImagen;
+            AccesoADatos datos = new AccesoADatos();
+            try
+            {
+                datos.SetConsulta("UPDATE IMAGENES SET ImagenUrl = @imagenUrl WHERE IdArticulo = @IdArticulo AND ID = @id");
+                datos.SetParametro("@imagenUrl", art.Imagen.ImagenUrl);
+                datos.SetParametro("@idArticulo", art.Id);
+                datos.SetParametro("@id", art.Imagen.Id);
+
+                datos.EjecutarLectura();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
         }
         public List<Articulo> Listar()
         {
@@ -134,7 +155,7 @@ namespace tp_web_equipo_28
 
                     if (!(datos.Lector["IdImagen"] is DBNull))
                     {
-                        aux.Imagen.Id = (int)datos.Lector["IdImagen"];
+                    aux.Imagen.Id = (int)datos.Lector["IdImagen"];
                     }
 
 
@@ -321,7 +342,7 @@ namespace tp_web_equipo_28
                     articulos.Add(aux);
 
                 }
-                return articulos;
+                    return articulos;
             }
             catch (Exception ex)
             {

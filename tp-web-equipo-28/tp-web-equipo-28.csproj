@@ -91,8 +91,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccesoADatos.cs" />
-    <Compile Include="Articulo.cs" />
     <Compile Include="ArticuloForm.aspx.cs">
       <DependentUpon>ArticuloForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -100,9 +98,6 @@
     <Compile Include="ArticuloForm.aspx.designer.cs">
       <DependentUpon>ArticuloForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ArticuloNegocio.cs" />
-    <Compile Include="Categoria.cs" />
-    <Compile Include="CategoriaNegocio.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -110,11 +105,6 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="IABML.cs" />
-    <Compile Include="Imagen.cs" />
-    <Compile Include="ImagenNegocio.cs" />
-    <Compile Include="Marca.cs" />
-    <Compile Include="MarcaNegocio.cs" />
     <Compile Include="MiMaster.Master.cs">
       <DependentUpon>MiMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -155,6 +145,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Catalogo.Dominio\Catalogo.Dominio.csproj">
+      <Project>{53794531-32b9-412a-b253-3bf5e9051d71}</Project>
+      <Name>Catalogo.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Catalogo.Negocio\Catalogo.Negocio.csproj">
+      <Project>{6574e9e9-6c2f-4bf9-8270-4f928be32fc7}</Project>
+      <Name>Catalogo.Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

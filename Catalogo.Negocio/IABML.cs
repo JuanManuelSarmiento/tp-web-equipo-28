@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
+using Catalogo.Dominio;
 
-namespace tp_web_equipo_28
+namespace Catalogo.Negocio
 {
     interface IABML<T>
     {
@@ -12,4 +14,5 @@ namespace tp_web_equipo_28
         void Update(T entity);
         List<T> Listar();
     }
+
 }

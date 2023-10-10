@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace tp_web_equipo_28
+namespace Catalogo.Dominio
 {
     public class Articulo
     {
         public int Id { get; set; }
         [DisplayName("Código")]
         public string Codigo { get; set; }
+
         public string Nombre { get; set; }
+
         [DisplayName("Descripción")]
         public string Descripcion { get; set; }
         public Marca Marca { get; set; }

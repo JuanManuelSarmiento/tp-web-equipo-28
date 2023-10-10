@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace tp_web_equipo_28
+namespace Catalogo.Negocio
 {
     public class AccesoADatos
     {
@@ -15,7 +16,7 @@ namespace tp_web_equipo_28
 
         public AccesoADatos()
         {
-            _conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true");
+            _conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true") ;
             _comando = new SqlCommand();
         }
         public void SetConsulta(string consulta)
@@ -26,7 +27,7 @@ namespace tp_web_equipo_28
         public void EjecutarLectura()
         {
             _comando.Connection = _conexion;
-
+            
             try
             {
                 _conexion.Open();
@@ -35,18 +36,18 @@ namespace tp_web_equipo_28
             catch (Exception ex)
             {
                 throw ex;
-            }
+            }  
         }
 
         public void SetParametro(string parametro, object valor)
         {
-            _comando.Parameters.AddWithValue(parametro, valor);
+            _comando.Parameters.AddWithValue(parametro, valor); 
         }
         public void CerrarConexion()
         {
             if (_lector != null)
                 _lector.Close();
-            _conexion.Close();
+            _conexion.Close();  
         }
     }
 }

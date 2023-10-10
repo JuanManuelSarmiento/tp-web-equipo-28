@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Catalogo.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace tp_web_equipo_28
+namespace Catalogo.Negocio
 {
     public class ImagenNegocio : IABML<Imagen>
     {
@@ -63,14 +65,13 @@ namespace tp_web_equipo_28
                 datos.CerrarConexion();
             }
         }
-        public List<Imagen> Listar(Articulo art)
+        public List<Imagen> Listar(int idArticulo)
         {
             datos = new AccesoADatos();
             try
             {
-                datos.SetConsulta("SELECT ImagenUrl FROM IMAGENES WHERE IdArticulo = @idArticulo ORDER BY CASE WHEN ImagenUrl = '@urlActual' THEN 0 ELSE 1 END, ImagenUrl");
-                datos.SetParametro("@idArticulo", art.Id);
-                datos.SetParametro("@urlActual", art.Imagen.ImagenUrl);
+                datos.SetConsulta("Select ImagenUrl from IMAGENES where IdArticulo = @idArticulo");
+                datos.SetParametro("@idArticulo", idArticulo);
                 datos.EjecutarLectura();
                 List<Imagen> imagenes = new List<Imagen>();
                 while (datos.Lector.Read())
@@ -91,7 +92,7 @@ namespace tp_web_equipo_28
             {
                 datos.CerrarConexion();
             }
-
+           
         }
 
         public void Update(Imagen entity)

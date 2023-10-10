@@ -1,18 +1,20 @@
-﻿using System;
+﻿using Catalogo.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace tp_web_equipo_28
+namespace Catalogo.Negocio
 {
-    public class MarcaNegocio : IABML<Marca>
+    public class CategoriaNegocio : IABML<Categoria>
     {
-        public void Add(Marca newEntity)
+        public void Add(Categoria newEntity)
         {
             AccesoADatos datos = new AccesoADatos();
             try
             {
-                datos.SetConsulta("INSERT INTO MARCAS(Descripcion) \r\nVALUES (@descripcion);");
+                datos.SetConsulta("INSERT INTO CATEGORIAS(Descripcion) \r\nVALUES (@descripcion);");
                 //datos.SetParametro("@id", newEntity.Id);
                 datos.SetParametro("@descripcion", newEntity.Descripcion);
 
@@ -28,13 +30,13 @@ namespace tp_web_equipo_28
             }
         }
 
-        public void Delete(Marca newEntity)
+        public void Delete(Categoria newEntity)
         {
             AccesoADatos datos = new AccesoADatos();
             try
             {
                 datos.SetParametro("@id", newEntity.Id);
-                datos.SetConsulta("DELETE FROM MARCAS WHERE Id = @Id AND NOT EXISTS (SELECT 1 FROM ARTICULOS WHERE IdMarca = @Id)");
+                datos.SetConsulta("DELETE FROM CATEGORIAS WHERE Id = @Id AND NOT EXISTS (SELECT 1 FROM ARTICULOS WHERE IdCategoria = @Id)");
 
                 datos.EjecutarLectura();
             }
@@ -48,17 +50,17 @@ namespace tp_web_equipo_28
             }
         }
 
-        public List<Marca> Listar()
+        public List<Categoria> Listar()
         {
-            List<Marca> lista = new List<Marca>();
+            List<Categoria> lista = new List<Categoria>();
             AccesoADatos datos = new AccesoADatos();
             try
             {
-                datos.SetConsulta("SELECT Id, Descripcion from MARCAS");
+                datos.SetConsulta("SELECT Id, Descripcion from CATEGORIAS");
                 datos.EjecutarLectura();
                 while (datos.Lector.Read())
                 {
-                    Marca aux = new Marca
+                    Categoria aux = new Categoria
                     {
                         Id = (int)datos.Lector["Id"],
                         Descripcion = (string)datos.Lector["Descripcion"]
@@ -78,16 +80,16 @@ namespace tp_web_equipo_28
             return lista;
         }
 
-        public void Update(Marca newEntity)
+        public void Update(Categoria newEntity)
         {
             AccesoADatos datos = new AccesoADatos();
             try
             {
                 //------------------
                 //FALTA TERMINAR
-                //datos.SetConsulta("UPDATE MARCAS SET Descripcion = @viejaDescripcion WHERE Descripcion = @nuevaDescripcion");
-                //datos.SetParametro("@viejaDescripcion", newEntity.Descripcion);
-                //datos.SetParametro("@nuevaDescripcion", nuevaDescripcion);
+                //datos.SetConsulta("UPDATE CATEGORIAS SET Descripcion = 'NUEVA-DESCRIPCION' WHERE Descripcion = 'VIEJA-DESCRIPCION'");
+                //datos.SetParametro("@id", newEntity.Descripcion);
+                //datos.SetParametro("@descripcion", nuevaDescripcion);
                 //datos.EjecutarLectura();
                 //------------------
             }
