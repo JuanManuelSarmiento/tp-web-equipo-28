@@ -8,7 +8,8 @@
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
 
-        <%
+        <%--Alternativa--%>
+<%--        <%
             foreach (Catalogo.Dominio.Articulo art in ListaArticulo)
             {%>
 
@@ -23,7 +24,25 @@
                     </div>
                 </div>
 
-          <%}%>
+          <%}%>--%>
+
+        <%--Alternativa--%>
+        <asp:Repeater ID="repRepetidor" runat="server">
+            <ItemTemplate>
+                <div class="col">
+                    <div class="card">
+                        <img src="<%#Eval("Imagen.ImagenUrl") %>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            <p class="card-text"><%#Eval("Descripcion") %></p>
+                            <a href="DetalleArticulo.aspx?id=<%#Eval("Id") %>">Ver Detalle</a>
+                            <asp:Button Text="Ejemplo" CssClass="btn btn-primary" runat="server" id="btnEjemplo" CommandArgument='<%#Eval("Id")%>' CommandName="ArticuloId" onClick="btnEjemplo_Click"/>
+                        </div>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+
     </div>
 
 </asp:Content>
