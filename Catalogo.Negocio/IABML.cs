@@ -13,6 +13,7 @@ namespace Catalogo.Negocio
         void Delete(T entity);
         void Update(T entity);
         List<T> Listar();
+        List<T> ListarConSP();
     }
 
 }

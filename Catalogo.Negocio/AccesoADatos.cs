@@ -24,6 +24,11 @@ namespace Catalogo.Negocio
             _comando.CommandType = System.Data.CommandType.Text;
             _comando.CommandText = consulta;
         }
+        public void SetProcedure(string sp)
+        {
+            _comando.CommandType = System.Data.CommandType.StoredProcedure;
+            _comando.CommandText = sp;
+        }
         public void EjecutarLectura()
         {
             _comando.Connection = _conexion;
@@ -38,7 +43,6 @@ namespace Catalogo.Negocio
                 throw ex;
             }  
         }
-
         public void SetParametro(string parametro, object valor)
         {
             _comando.Parameters.AddWithValue(parametro, valor); 

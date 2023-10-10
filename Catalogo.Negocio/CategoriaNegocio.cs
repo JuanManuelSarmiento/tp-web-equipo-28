@@ -29,7 +29,6 @@ namespace Catalogo.Negocio
                 datos.CerrarConexion();
             }
         }
-
         public void Delete(Categoria newEntity)
         {
             AccesoADatos datos = new AccesoADatos();
@@ -49,7 +48,6 @@ namespace Catalogo.Negocio
                 datos.CerrarConexion();
             }
         }
-
         public List<Categoria> Listar()
         {
             List<Categoria> lista = new List<Categoria>();
@@ -79,7 +77,35 @@ namespace Catalogo.Negocio
             }
             return lista;
         }
+        public List<Categoria> ListarConSP()
+        {
+            List<Categoria> lista = new List<Categoria>();
+            AccesoADatos datos = new AccesoADatos();
+            try
+            {
+                datos.SetConsulta("SELECT Id, Descripcion from CATEGORIAS");
+                datos.EjecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Categoria aux = new Categoria
+                    {
+                        Id = (int)datos.Lector["Id"],
+                        Descripcion = (string)datos.Lector["Descripcion"]
+                    };
 
+                    lista.Add(aux);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+            return lista;
+        }
         public void Update(Categoria newEntity)
         {
             AccesoADatos datos = new AccesoADatos();
