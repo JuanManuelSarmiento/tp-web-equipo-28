@@ -1,18 +1,29 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MiMaster.Master" AutoEventWireup="true" CodeBehind="ArticuloForm.aspx.cs" Inherits="tp_web_equipo_28.ArticuloForm" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <h1>Lista de Artículos</h1>
-    <asp:GridView ID="dgvArticulos" runat="server" CssClass="table" AutoGenerateColumns="false">
-        <Columns>
-            <asp:BoundField HeaderText="Código" DataField="Codigo" />
-            <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
-            <asp:BoundField HeaderText="Descripción" DataField="Descripcion" />
-            <asp:BoundField HeaderText="Marca" DataField="Marca.Descripcion" />
-            <asp:BoundField HeaderText="Categoría" DataField="Categoria.Descripcion" />
-            <asp:BoundField HeaderText="Precio" DataField="Precio" />
-        </Columns>
-    </asp:GridView>
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="txtCodigo" class="form-label">Codigo</label>
+                <asp:TextBox runat="server" ID="txtCodigo" CssClass="form-control" />
+            </div>
+            <div class="mb-3">
+                <label for="txtDescripcion" class="form-label">Descripción</label>
+                <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" />
+            </div>
+            <div class="mb-3">
+                <label for="txtMarca" class="form-label">Marca</label>
+                <asp:DropDownList runat="server" ID="ddlMarcas" CssClass="form-select"></asp:DropDownList>
+            </div>
+            <%--Falta agregar todos los campos--%>
+            <div class="mb-3">
+                <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" runat="server" />
+                <a href="Home.aspx">Cancelar</a>
+            </div>
+        </div>
+    </div>
 
 </asp:Content>
