@@ -11,6 +11,10 @@
                 <asp:TextBox runat="server" ID="txtCodigo" CssClass="form-control" />
             </div>
             <div class="mb-3">
+                <label for="txtNombre" class="form-label">Nombre</label>
+                <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control" />
+            </div>
+            <div class="mb-3">
                 <label for="txtDescripcion" class="form-label">Descripción</label>
                 <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" />
             </div>
@@ -18,10 +22,17 @@
                 <label for="txtMarca" class="form-label">Marca</label>
                 <asp:DropDownList runat="server" ID="ddlMarcas" CssClass="form-select"></asp:DropDownList>
             </div>
-            <%--Falta agregar todos los campos--%>
+            <div class="mb-3">
+                <label for="txtCategoria" class="form-label">Categoria</label>
+                <asp:DropDownList runat="server" ID="ddlCategorias" CssClass="form-select"></asp:DropDownList>
+            </div>
+            <div class="mb-3">
+                <label for="txtPrecio" class="form-label">Precio</label>
+                <asp:TextBox runat="server" ID="txtPrecio" CssClass="form-control" />
+            </div>
             <div class="mb-3">
                 <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" runat="server" />
-                <a href="Home.aspx">Cancelar</a>
+                <asp:Button Text="Cancelar" ID="btnCancelar" CssClass="btn btn-primary" OnClick="btnCancelar_Click" runat="server" />
             </div>
         </div>
     </div>

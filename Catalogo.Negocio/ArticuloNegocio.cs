@@ -442,7 +442,6 @@ namespace Catalogo.Negocio
                     throw ex;
                 }
             }
-
         public List<Articulo> ListarXId(string id)
         {
             List<Articulo> articulos = new List<Articulo>();

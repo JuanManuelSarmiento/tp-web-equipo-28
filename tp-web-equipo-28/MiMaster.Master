@@ -28,24 +28,27 @@
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-            <footer>
 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <h3>Enlaces</h3>
-                                <ul>
-                                    <li><a href="Home.aspx">Inicio</a></li>
-                                    <li><a href="https://frgp.cvg.utn.edu.ar/">Universidad Tecnológica Nacional</a></li>
-                                    <li><a href="https://maxiprograma.com/">Maxi Programa</a></li>
-                                    <h3>Derechos de autor</h3>
-                                    <p>(c) 2023 Equipo 28. Todos los derechos reservados.</p>
-                                </ul>
-                            </div>
+            <footer class="mt-5 border-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 offset-lg-4 text-center">
+                            <h3>Enlaces</h3>
+                            <ul class="list-unstyled">
+                                <li><a href="Home.aspx">Inicio</a></li>
+                                <li><a href="https://frgp.cvg.utn.edu.ar/">Universidad Tecnológica Nacional</a></li>
+                                <li><a href="https://maxiprograma.com/">Maxi Programa</a></li>
+                            </ul>
+                            <h3>Derechos de autor</h3>
+                            <p>(c) 2023 Equipo 28. Todos los derechos reservados.</p>
                         </div>
                     </div>
-
+                </div>
             </footer>
+
+
+
+
         </div>
     </form>
 </body>
