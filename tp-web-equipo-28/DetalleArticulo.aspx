@@ -7,6 +7,8 @@
     <h1>Detalle</h1>
 
     <asp:GridView runat="server" ID="dgvArticulos"></asp:GridView>
+    <asp:Button Text="Volver" ID="btnVolver" CssClass="btn btn-primary" OnClick="btnVolver_Click" runat="server" />
+    <asp:Button Text="Eliminar" ID="btnEliminar" CssClass="btn btn-primary" OnClick="btnEliminar_Click" runat="server" />
 
 </asp:Content>
 

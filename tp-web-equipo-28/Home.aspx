@@ -11,10 +11,11 @@
             <ItemTemplate>
                 <div class="col">
                     <div class="card">
-                        <img src="<%# Eval("Imagen.ImagenUrl") %>" class="card-img-top" alt="...">
+                        <img src="<%# Eval("Imagen.ImagenUrl") %>" class="card-img-top" alt="ERROR AL CARGAR IMAGEN">
                         <div class="card-body">
                             <p class="card-text"><%# Eval("Descripcion") %></p>
                             <a href="DetalleArticulo.aspx?id=<%# Eval("Id") %>" class="btn btn-primary">Ver Detalle</a>
+                            <a href="DetalleArticulo.aspx?id=<%# Eval("Id") %>" class="btn btn-primary">Eliminar</a>
                         </div>
                     </div>
                 </div>

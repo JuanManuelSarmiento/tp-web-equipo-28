@@ -69,6 +69,8 @@ namespace tp_web_equipo_28
             a.Precio = precio;
 
             negocio.Add(a);
+
+            Response.Redirect("Home.aspx");
         }
         protected void btnCancelar_Click(object sender, EventArgs e)
         {

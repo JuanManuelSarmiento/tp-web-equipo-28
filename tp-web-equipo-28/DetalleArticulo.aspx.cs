@@ -24,5 +24,32 @@ namespace tp_web_equipo_28
                 dgvArticulos.DataBind();
             }
         }
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx");
+        }
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string id = Request.QueryString["Id"];
+
+            if (!string.IsNullOrEmpty(id))
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                Articulo a = new Articulo();
+
+                if (int.TryParse(id, out int articuloId))
+                {
+                    a.Id = articuloId;
+                    negocio.Delete(a);
+                    Response.Redirect("Home.aspx");
+                }
+                else
+                {
+                    // Manejar el caso en el que la conversión a int no fue exitosa
+                    // Puedes mostrar un mensaje de error o tomar alguna otra acción apropiada
+                }
+            }
+        }
+
     }
 }
