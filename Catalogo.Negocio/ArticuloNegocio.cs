@@ -530,5 +530,39 @@ namespace Catalogo.Negocio
                 throw ex;
             }
         }
+        public Articulo ObtenerArticuloPorId(string articuloId)
+        {
+            AccesoADatos datos = new AccesoADatos();
+            try
+            {
+                datos.SetParametro("@id", articuloId);
+                datos.SetConsulta("SELECT Id, Codigo, Nombre, Descripcion, Precio FROM ARTICULOS WHERE Id = @id");
+
+                datos.EjecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    Articulo articulo = new Articulo
+                    {
+                        Id = (int)datos.Lector["Id"],
+                        Codigo = datos.Lector["Codigo"].ToString(), 
+                        Nombre = datos.Lector["Nombre"].ToString(),
+                        Descripcion = datos.Lector["Descripcion"].ToString(),
+                        Precio = Convert.ToDecimal(datos.Lector["Precio"])
+                    };
+
+                    return articulo;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
     }
 }

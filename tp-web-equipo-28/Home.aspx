@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MiMaster.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="tp_web_equipo_28.Home" %>
+﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/MiMaster.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="tp_web_equipo_28.Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -15,6 +15,7 @@
                         <div class="card-body">
                             <p class="card-text"><%# Eval("Descripcion") %></p>
                             <a href="DetalleArticulo.aspx?id=<%# Eval("Id") %>" class="btn btn-primary">Ver Detalle</a>
+                            <asp:Button Text="Agregar al Carrito" OnClick="AgregarAlCarrito_Click" CommandArgument='<%# Eval("Id") %>' runat="server" />
                             <a href="DetalleArticulo.aspx?id=<%# Eval("Id") %>" class="btn btn-primary">Eliminar</a>
                         </div>
                     </div>

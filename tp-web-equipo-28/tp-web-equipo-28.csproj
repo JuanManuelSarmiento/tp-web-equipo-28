@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ArticuloForm.aspx" />
+    <Content Include="CarritoForm.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -98,6 +99,13 @@
     </Compile>
     <Compile Include="ArticuloForm.aspx.designer.cs">
       <DependentUpon>ArticuloForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CarritoForm.aspx.cs">
+      <DependentUpon>CarritoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarritoForm.aspx.designer.cs">
+      <DependentUpon>CarritoForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="DetalleArticulo.aspx.cs">
       <DependentUpon>DetalleArticulo.aspx</DependentUpon>
