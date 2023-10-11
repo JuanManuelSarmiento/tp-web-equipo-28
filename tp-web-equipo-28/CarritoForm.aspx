@@ -2,23 +2,35 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <asp:Repeater ID="repCarrito" runat="server">
-            <ItemTemplate>
-                <div class="col">
-                    <div class="card">
-                        <img src="<%# Eval("Imagen.ImagenUrl") %>" class="card-img-top" alt="ERROR AL CARGAR IMAGEN">
-                        <div class="card-body">
-                            <p class="card-text"><%# Eval("Descripcion") %></p>
-                            <asp:Button Text="Seguir Comprando" ID="btnSeguir" CssClass="btn btn-primary" OnClick="btnSeguir_Click" runat="server" />
-                            <asp:Button Text="Eliminar del Carrito" ID="btnEliminarDelCarrito" CssClass="btn btn-primary" OnClick="btnEliminarDelCarrito_Click" runat="server" />
-                        </div>
-                    </div>
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>
+    <div class="row">
+        <div class="col">
+            <h1>Mi Carrito</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <asp:Repeater ID="repCarrito" runat="server">
+                        <ItemTemplate>
+                            <tr>
+                                <td><img src='<%# Eval("Imagen.ImagenUrl") %>' alt="Imagen del artículo" style="max-width: 100px;" /></td>
+                                <td><%# Eval("Descripcion") %></td>
+                                <td>
+                                    <asp:Button Text="Seguir Comprando" ID="btnSeguir" CssClass="btn btn-primary" OnClick="btnSeguir_Click" runat="server" />
+                                    <asp:Button Text="Eliminar del Carrito" ID="btnEliminarDelCarrito" CssClass="btn btn-danger" OnClick="btnEliminarDelCarrito_Click" CommandArgument='<%# Eval("Id") %>' runat="server" />
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </tbody>
+            </table>
+        </div>
     </div>
-
 </asp:Content>
+
