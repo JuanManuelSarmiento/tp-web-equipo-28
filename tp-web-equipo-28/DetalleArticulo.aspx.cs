@@ -43,11 +43,6 @@ namespace tp_web_equipo_28
                     negocio.Delete(a);
                     Response.Redirect("Home.aspx");
                 }
-                else
-                {
-                    // Manejar el caso en el que la conversión a int no fue exitosa
-                    // Puedes mostrar un mensaje de error o tomar alguna otra acción apropiada
-                }
             }
         }
 
