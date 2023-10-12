@@ -32,5 +32,8 @@
             </table>
         </div>
     </div>
+
+    <asp:Label ID="lblPrecioTotal" runat="server" Text="Precio Total: $" CssClass="precio-total"></asp:Label>
+
 </asp:Content>
 

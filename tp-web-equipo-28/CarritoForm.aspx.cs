@@ -20,9 +20,25 @@ namespace tp_web_equipo_28
                 {
                     repCarrito.DataSource = carrito;
                     repCarrito.DataBind();
+
+                    if (carrito.Count > 0)
+                    {
+                        decimal precioTotal = carrito.Sum(articulo => articulo.Precio);
+                        lblPrecioTotal.Text = "Precio Total: $" + precioTotal.ToString("N2");
+                    }
+                    else
+                    {
+                        lblPrecioTotal.Text = "No hay elementos en el carrito";
+                    }
+                }
+                else
+                {
+                    lblPrecioTotal.Text = "No hay elementos en el carrito";
                 }
             }
         }
+
+
         protected void btnSeguir_Click(object sender, EventArgs e)
         {
             Response.Redirect("Home.aspx");
