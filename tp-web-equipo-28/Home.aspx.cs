@@ -15,7 +15,7 @@ namespace tp_web_equipo_28
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            ListaArticulo = negocio.ListarConSP();
+            ListaArticulo = negocio.Listar();
 
             if (!IsPostBack)
             {
